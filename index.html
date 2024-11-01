@@ -1,0 +1,53 @@
+<button id="right" style="
+   font-size: 20px;
+   padding: 10px;
+   float: right;
+">Right</button>
+
+<button id="left" style="
+   font-size: 20px;
+   padding: 10px;
+">Left</button>
+
+<p
+  id="hero"
+  style="
+    background-color: blue;
+    font-size: 25px;
+    width: 30%;
+    padding: 20px;
+    position: relative;
+    left: 0px;
+  ">Text
+</p>
+
+<script>
+  let hero = window.document.querySelector('#hero');
+  let rightButton = window.document.querySelector('#right');
+  let leftButton = window.document.querySelector('#left');
+
+  let position = 0; // начальная позиция элемента
+
+  const clickHandler = () => {
+      // Изменение цвета текста
+      if(hero.style.backgroundColor === 'grey') {
+          hero.style.backgroundColor = 'blue';
+      } else {
+          hero.style.backgroundColor = 'grey';
+      }
+  }
+
+  const rightHandler = () => {
+      position += 20; // увеличиваем значение для движения вправо
+      hero.style.left = `${position}px`;
+  };
+
+  const leftHandler = () => {
+      position -= 20; // уменьшаем значение для движения влево
+      hero.style.left = `${position}px`;
+  };
+
+  hero.onclick = clickHandler;
+  rightButton.onclick = rightHandler;
+  leftButton.onclick = leftHandler;
+</script>
